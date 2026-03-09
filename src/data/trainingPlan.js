@@ -1,4 +1,4 @@
-export const RACE_DATE = '2025-04-19';
+export const RACE_DATE = '2025-04-19T00:00:00';
 
 export const PHASE_COLORS = {
   Base: '#c8b89a',

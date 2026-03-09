@@ -18,14 +18,16 @@ function parsePace(paceStr) {
 }
 
 function formatPace(decimalMins) {
-  const mins = Math.floor(decimalMins);
-  const secs = Math.round((decimalMins - mins) * 60);
+  let mins = Math.floor(decimalMins);
+  let secs = Math.round((decimalMins - mins) * 60);
+  if (secs === 60) { mins += 1; secs = 0; }
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
 function formatTime(totalMins) {
-  const hours = Math.floor(totalMins / 60);
-  const mins = Math.round(totalMins % 60);
+  const roundedTotal = Math.round(totalMins);
+  const hours = Math.floor(roundedTotal / 60);
+  const mins = roundedTotal % 60;
   return `${hours}h ${mins.toString().padStart(2, '0')}m`;
 }
 

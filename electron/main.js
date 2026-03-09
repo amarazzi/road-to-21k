@@ -53,6 +53,8 @@ ipcMain.handle('store:get', (_event, key) => {
 });
 
 ipcMain.handle('store:set', (_event, key, value) => {
+  const ALLOWED_KEYS = ['sessions'];
+  if (!ALLOWED_KEYS.includes(key)) return;
   store.set(key, value);
 });
 
